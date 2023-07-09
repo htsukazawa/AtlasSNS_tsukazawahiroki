@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Crypt;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,13 +16,13 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             ['username' => 'Atlas1',
              'mail'     => 'Atlas1@gmail.com',
-             'password' => 'atAtlas01'],
+             'password' => Crypt::encrypt('atAtlas01')],
              ['username' => 'Atlas2',
              'mail'     => 'Atlas2@gmail.com',
-             'password' => 'atAtlas02'],
+             'password' => Crypt::encrypt('atAtlas02')],
              ['username' => 'Atlas3',
              'mail'     => 'Atlas3@gmail.com',
-             'password' => 'atAtlas03'],
+             'password' => Crypt::encrypt('atAtlas03')],
         ]);
     }
 }
